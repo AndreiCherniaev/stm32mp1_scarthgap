@@ -1,0 +1,5 @@
+# Ignore the entire build directory outputs and caches
+build/sstate-cache/
+build/tmp/
+build/downloads/
+build/cache/
