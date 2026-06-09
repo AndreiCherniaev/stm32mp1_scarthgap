@@ -25,6 +25,11 @@ You will need to run this command every time you reboot your machine.
 source poky/oe-init-build-env
 bitbake core-image-minimal
 ```
+## Create image
+```
+cd tmp/deploy/images/stm32mp1/scripts
+./create_sdcard_from_flashlayout.sh "../flashlayout_core-image-minimal/extensible/FlashLayout_sdcard_stm32mp157f-dk2-extensible.tsv"
+```
 ## Write image
 ```
 sudo dd if="$HOME/stm32mp1/build/tmp/deploy/images/stm32mp1/FlashLayout_sdcard_stm32mp157f-dk2-extensible.raw" of="/dev/disk/by-id/usb-Generic_STORAGE_DEVICE-0:0" bs=4M conv=fsync status=progress
