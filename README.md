@@ -14,3 +14,7 @@ cd stm32mp1_scarthgap
 source poky/oe-init-build-env
 bitbake core-image-minimal
 ```
+## Write image
+```
+sudo dd if="$HOME/stm32mp1/build/tmp/deploy/images/stm32mp1/FlashLayout_sdcard_stm32mp157f-dk2-extensible.raw" of="/dev/disk/by-id/usb-Generic_STORAGE_DEVICE-0:0" bs=4M conv=fsync status=progress
+```
