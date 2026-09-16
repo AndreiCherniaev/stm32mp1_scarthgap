@@ -22,9 +22,13 @@ echo 0 | sudo tee /proc/sys/kernel/apparmor_restrict_unprivileged_userns
 You will need to run this command every time you reboot your machine.
 ## Work with bmaptool
 ```
+source poky/oe-init-build-env
+```
+```
 bitbake-layers create-layer meta-custom-layer
 mkdir -p "meta-custom-layer/wic/"
-wcurl https://raw.githubusercontent.com/rauc/meta-rauc-community/refs/heads/master/meta-rauc-raspberrypi/files/wic/sdimage-dual-raspberrypi.wks.in -o "meta-custom-layer/wic/sdimage-dual-raspberrypi.wks.in"
+wcurl https://raw.githubusercontent.com/dh-electronics/meta-dhsom-stm32-bsp/41fd69195ee008a91049a46cecf7eb7f1d87bb81/files/wic/sdimage-stm32mp1.wks -o "meta-custom-layer/wic/sdimage-stm32mp1.wks"
+```
 Then
 ```
 nano "/home/q/stm32mp1_scarthgap/build/conf/bblayers.conf"
@@ -35,7 +39,6 @@ ${TOPDIR}/../meta-custom-layer \
 ```
 ## Build distro
 ```
-source poky/oe-init-build-env
 bitbake core-image-minimal
 ```
 ## Error
