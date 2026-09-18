@@ -34,3 +34,11 @@ cd tmp/deploy/images/stm32mp1/scripts
 ```
 sudo dd if="$HOME/stm32mp1_scarthgap/build/tmp/deploy/images/stm32mp1/FlashLayout_sdcard_stm32mp157f-dk2-extensible.raw" of="/dev/disk/by-id/usb-Generic_STORAGE_DEVICE-0:0" bs=4M conv=fsync status=progress
 ```
+But if the raw file is located on the remote machine with ssh access then you can not to copy the raw file but read it directly from remote and write to miscrosd card
+```
+ssh q@192.168.122.48 'dd if=$HOME/stm32mp1_scarthgap/build/tmp/deploy/images/stm32mp1/FlashLayout_sdcard_stm32mp157f-dk2-extensible.raw' | sudo dd of="/dev/disk/by-id/usb-Generic_STORAGE_DEVICE-0:0" bs=4M conv=fsync status=progress
+```
+# Connect to console via ST-Link
+```
+tio /dev/ttyACM0 -L --log-file "poky5.0_ok"
+```
