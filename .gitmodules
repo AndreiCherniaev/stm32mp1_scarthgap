@@ -10,3 +10,7 @@
 	path = poky
 	url = https://git.yoctoproject.org/git/poky
 	branch = scarthgap
+[submodule "meta-qt6"]
+	path = meta-qt6
+	url = git://code.qt.io/yocto/meta-qt6.git
+	branch = lts-6.8.9
