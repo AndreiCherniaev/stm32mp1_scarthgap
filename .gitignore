@@ -3,3 +3,5 @@ build/sstate-cache/
 build/tmp/
 build/downloads/
 build/cache/
+*.log
+build/bitbake.lock
