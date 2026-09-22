@@ -27,7 +27,7 @@ bitbake core-image-minimal
 ```
 ## Create image
 ```
-cd tmp/deploy/images/stm32mp1/scripts
+cd build/tmp/deploy/images/stm32mp1/scripts
 ./create_sdcard_from_flashlayout.sh "../flashlayout_core-image-minimal/extensible/FlashLayout_sdcard_stm32mp157f-dk2-extensible.tsv"
 ```
 ## Write image
