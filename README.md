@@ -1,4 +1,4 @@
-How to build Poky operating system for STM32MP1.
+How to build Poky operating system for stm32mp15-disco.
 ## Install deps
 Tested on Ubuntu 24 (build fails on Ubuntu 26.04)
 ```
@@ -27,16 +27,16 @@ bitbake core-image-minimal
 ```
 ## Create image
 ```
-cd build/tmp/deploy/images/stm32mp1/scripts
-./create_sdcard_from_flashlayout.sh "../flashlayout_core-image-minimal/extensible/FlashLayout_sdcard_stm32mp157f-dk2-extensible.tsv"
+cd build/tmp/deploy/images/stm32mp15-disco/scripts
+./create_sdcard_from_flashlayout.sh "../flashlayout_core-image-minimal/opteemin/FlashLayout_sdcard_stm32mp157f-dk2-opteemin.tsv"
 ```
 ## Write image
 ```
-sudo dd if="$HOME/stm32mp1_scarthgap/build/tmp/deploy/images/stm32mp1/FlashLayout_sdcard_stm32mp157f-dk2-extensible.raw" of="/dev/disk/by-id/usb-Generic_STORAGE_DEVICE-0:0" bs=4M conv=fsync status=progress
+sudo dd if="$HOME/stm32mp1_scarthgap/build/tmp/deploy/images/stm32mp15-disco/FlashLayout_sdcard_stm32mp157f-dk2-opteemin.raw" of="/dev/disk/by-id/usb-Generic_STORAGE_DEVICE-0:0" bs=4M conv=fsync status=progress
 ```
 But if the raw file is located on the remote machine with ssh access then you can not to copy the raw file but read it directly from remote and write to miscrosd card
 ```
-ssh q@192.168.122.48 'dd if=$HOME/stm32mp1_scarthgap/build/tmp/deploy/images/stm32mp1/FlashLayout_sdcard_stm32mp157f-dk2-extensible.raw' | sudo dd of="/dev/disk/by-id/usb-Generic_STORAGE_DEVICE-0:0" bs=4M conv=fsync status=progress
+ssh q@192.168.122.48 'dd if="$HOME/stm32mp1_scarthgap/build/tmp/deploy/images/stm32mp15-disco/FlashLayout_sdcard_stm32mp157f-dk2-opteemin.raw"' | sudo dd of="/dev/disk/by-id/usb-Generic_STORAGE_DEVICE-0:0" bs=4M conv=fsync status=progress
 ```
 # Connect to console via ST-Link
 ```
