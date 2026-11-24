@@ -10,7 +10,8 @@ do_install() {
     # Create the destination directory on the target (e.g., /etc/custom/)
     install -d ${D}${sysconfdir}/qt6/
     # Install the file with specific permissions (0644 = read/write for owner, read for others)
-    install -m 0644 ${WORKDIR}/eglfs.json ${D}${sysconfdir}/qt6/eglfs.json
+    UNPACKDIR ?= "${WORKDIR}"
+    install -m 0644 ${UNPACKDIR}/eglfs.json ${D}${sysconfdir}/qt6/eglfs.json
 }
 
 # Ensure the installed file is packaged properly into the final image
